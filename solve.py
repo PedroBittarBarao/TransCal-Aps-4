@@ -25,7 +25,7 @@ def angulo(No1,No2):
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
-        print("Usage: python3 solve.py <input_file> <output_file>")
+        print("Usage: python3 solve.py <input_file> <output_file_name>")
         exit(1)
 
     [nn,N,nm,Inc,nc,F,nr,R] = ft.importa(f'{sys.argv[1]}')
