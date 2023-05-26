@@ -28,7 +28,7 @@ if __name__ == "__main__":
         print("Usage: python3 solve.py <input_file> <output_file>")
         exit(1)
 
-    [nn,N,nm,Inc,nc,F,nr,R] = ft.importa(f'{sys.argv[1]}.xls')
+    [nn,N,nm,Inc,nc,F,nr,R] = ft.importa(f'{sys.argv[1]}')
     # nn = numero de nos
     # N = matriz dos nos
     # nm = numero de membros
@@ -113,3 +113,12 @@ if __name__ == "__main__":
     Fi = tens*Inc[:,3]
 
     ft.geraSaida(sys.argv[2],Reac,u_completo,deform,Fi,tens)
+
+    N2 = N.copy()
+    for i in range (nn):
+        N2[0][i] += (u_completo[i*2][0])*1000
+        N2[1][i] += (u_completo[i*2+1][0])*1000
+
+
+
+    ft.plota_to_file(N2,Inc,f"{sys.argv[2]}")
